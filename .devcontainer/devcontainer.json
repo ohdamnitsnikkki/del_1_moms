@@ -9,7 +9,7 @@
 	"build": {
         "context": ".",
         "dockerfile": "Dockerfile"
-    }
+    },
 	// Features add additional features to your environment. See https://containers.dev/features
 	// Beware: features are not supported on all platforms and may have unintended side-effects.
 	// "features": {
@@ -17,4 +17,6 @@
     //     "moby": false
     //   }
     // }
+	"postCreateCommand": "python3 -m venv venv && . venv/bin/activate && pip install -r requirements.txt",
+	"postStartCommand": "echo 'source venv/bin/activate' >> ~/.bashrc"
 }
